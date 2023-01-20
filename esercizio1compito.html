@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>esercizio 1 compito</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #color-display {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        background-color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Color Picker</h1>
+    <div id="color-display"></div>
+
+    <form id="custom-hex-form" action="" method="get">
+      <label>inserisci il codice del colore esadecimale</label>
+      <input id="hex-input" type="text" name="hex" />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+     
+      const colorDisplay = document.getElementById('color-display');
+     
+      const form = document.getElementById('custom-hex-form');
+
+      form.addEventListener('submit', event => {
+      
+        event.preventDefault();
+       
+        const hexInput = document.getElementById('hex-input');
+        const hexValue = hexInput.value;
+        
+        colorDisplay.style.backgroundColor = hexValue;
+      });
+    </script>
+  </body>
+</html>

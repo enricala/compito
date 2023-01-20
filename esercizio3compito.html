@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>esercizio 3 compito</title>
+<script>
+
+function randomNumber() {
+return Math.floor(Math.random() * 10) + 1;
+}
+
+let number = randomNumber();
+let guess;
+let message;
+
+function guessNumber() {
+guess = document.getElementById("guess").value;
+if(guess == number){
+message = "Complimenti hai vinto!";
+document.getElementById("message").innerHTML = message;
+document.getElementById("resetButton").style.display = "block";
+} else if (guess > number){
+message = "Numero troppo alto!";
+document.getElementById("message").innerHTML = message;
+} else if (guess < number){
+message = "Numero troppo basso!";
+document.getElementById("message").innerHTML = message;
+}
+}
+
+function resetGame() {
+number = randomNumber();
+document.getElementById("resetButton").style.display = "none";
+document.getElementById("message").innerHTML = "";
+}
+</script>
+</head>
+<body>
+<h1>Indovina il Numero</h1>
+<p>Indovina il numero da 1 a 10 che il computer ha generato</p>
+<input type="text" id="guess">
+<input type="button" value="Indovina" onClick="guessNumber()">
+<input type="button" value="Reset" onClick="resetGame()" id="resetButton" style="display:none;">
+<p id="message"></p>
+</body>
+</html>
+
+
